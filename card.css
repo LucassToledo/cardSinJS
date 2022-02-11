@@ -1,0 +1,77 @@
+* {
+    /* Primero reseteo todo */
+    margin: 0;
+    padding: 0;
+    /* Hago que el contenido llegue hasta los bordes */
+    box-sizing: border-box;
+    /* Me gusta el sans-serif */
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    /* Para poner en el medio */
+    align-items: center;
+    /* Lo mismo */
+    justify-content: center;
+    /* No recuerdo si ya vimos View-height y v-width en clase pero siempre los uso porque me parecen más divertidos */
+    min-height: 100vh;
+    background: #222;
+}
+
+.header img {
+    position: absolute;
+    top: 5vh;
+}
+
+.header h1 {
+    position: absolute;
+    font-size: 25px;
+    color: #fff;
+    top: 5vh;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+}
+
+.card__face {
+    position:absolute;
+    /* Acá hago que ocupe todo el espacio que defino en card */
+    width: 100%;
+    height: 100%;
+    /* Esta cosa la usaba uno en Instagram y dije "Messirve" */
+    backface-visibility: hidden;
+    /* Acá redondeo los bordes */
+    border-radius: 10px;
+    overflow: hidden;
+    /* Ajusto la velocidad a la que cambia el estado para darle un delay a la animación */
+    transition: 0.5s;
+    /* Acá le digo en qué estado de giro comienza, este en 0 por ser el frente*/
+    transform: perspective(600px) rotate(0deg);
+    /**/
+    box-shadow: 0 5px 10px #000;
+}
+
+.card__face img {
+    /*Con esto hago que la imagen se acomode dentro del recorte de card*/
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__face h3 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    background: black;
+    /* La cuarta propiedad me permite modificar la transparencia */
+    background: rgba(0, 0, 0, .7);
+    text-align: center;
+}
