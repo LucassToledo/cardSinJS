@@ -17,27 +17,36 @@ body {
     /* No recuerdo si ya vimos View-height y v-width en clase pero siempre los uso porque me parecen más divertidos */
     min-height: 100vh;
     background: #222;
+
+    flex-wrap: wrap;
 }
 
 .header img {
+    /* Acomodo el logo */
     position: absolute;
     top: 5vh;
+    left: 38vw;
 }
 
 .header h1 {
     position: absolute;
     font-size: 25px;
     color: #fff;
-    top: 5vh;
+    top: 8vh;
+    left: 44vw;
 }
 
 .card {
     position: relative;
     width: 300px;
     height: 400px;
+    margin: 20px;
+
 }
 
-.card__face {
+
+
+.card .face {
     position:absolute;
     /* Acá hago que ocupe todo el espacio que defino en card */
     width: 100%;
@@ -49,13 +58,16 @@ body {
     overflow: hidden;
     /* Ajusto la velocidad a la que cambia el estado para darle un delay a la animación */
     transition: 0.5s;
+}
+
+.card .front{
     /* Acá le digo en qué estado de giro comienza, este en 0 por ser el frente*/
-    transform: perspective(600px) rotate(0deg);
-    /**/
+    transform: perspective(600px) rotateY(0deg);
+    /* Le agrego sombrita a la card */
     box-shadow: 0 5px 10px #000;
 }
 
-.card__face img {
+.card .face img {
     /*Con esto hago que la imagen se acomode dentro del recorte de card*/
     position: absolute;
     width: 100%; 
@@ -63,7 +75,7 @@ body {
     object-fit: cover;
 }
 
-.card__face h3 {
+.card .front h3 {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -74,4 +86,41 @@ body {
     /* La cuarta propiedad me permite modificar la transparencia */
     background: rgba(0, 0, 0, .7);
     text-align: center;
+}
+
+.card .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: #000;
+    padding: 10px;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .back .link {
+    border-top: solid 2px #fff;
+    height: 30px;
+    line-height: 30px ;
+}
+
+.card .back .link a {
+    color: #fff;
+}
+
+.card .back .link h3 {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.card:hover .front {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back {
+    transform: perspective(600px) rotateY(360deg);
 }
