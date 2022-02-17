@@ -11,23 +11,102 @@
     overflow: hidden;
 }
 
-card1::before {
+.card1::before {
     content: '';
     position: absolute;
-    top: -50%;
+    top: -60%;
     /* Acá hago que ocupe todo el espacio que defino en card */
     width: 100%;
     height: 100%;
     /* Este color por los colores del png */
     background: #2196f3;
     /* Con esto defino cuánto gira */
-    transform: skewY(345deg);
+    transform: skewY(390deg);
     /* Que sea rápido */
     transition: 0.5s;
 }
 
 .card1:hover::before {
     /* Un efecto copado cuando pongo el mouse sobre card */
-    top: -70%;
-    transform: skewY(390deg);
+    top: -50%;
+    transform: skewY(345deg);
+}
+
+.card1::after {
+    content: 'TZUZUL';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* El grosor de la letra */
+    font-weight: 600;
+    /* el tamaño de la letra */
+    font-size: 8em;
+    /* Eligo rgba para hacerlo transparente */
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.card1 .imgDiv{
+    position: relative;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    /* uso el z para ponerlo adelante de todo al png */
+    z-index: 1;
+}
+
+/* Movimiento copado con el hover */
+.card1 .imgDiv img {
+    max-width: 100%;
+    transition: 0.5s;
+}
+.card1:hover .imgDiv img {
+    max-width: 60%;
+}
+
+/* Agrego estilos para los otros elementos dentro de la card */
+
+.card1 .contentDiv {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.card1 .contentDiv h3 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.card1 .contentDiv .precio {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.card1 .contentDiv .comprar {
+    position: relative;
+    /* Lo escondo */
+    top: 200px;
+    opacity: 0;
+    /* Probar el short */
+    padding: 10px 30px;
+    margin-top: 15px;
+    color: #fff;
+    background-color: #2196f3;
+    /* No me gusta la linea de abajo */
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.card1:hover .contentDiv .comprar {
+    top: 0;
+    /* Lo muestro */
+    opacity: 1;
 }
