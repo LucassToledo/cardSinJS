@@ -39,7 +39,7 @@
     left: 0;
     /* El grosor de la letra */
     font-weight: 600;
-    /* el tamaño de la letra */
+    /* el tamaño de la letra del fondo */
     font-size: 8em;
     /* Eligo rgba para hacerlo transparente */
     color: rgba(0, 0, 0, 0.2);
@@ -51,14 +51,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 15px;
     /* uso el z para ponerlo adelante de todo al png */
     z-index: 1;
 }
 
 /* Movimiento copado con el hover */
 .card1 .imgDiv img {
-    max-width: 100%;
+    max-width: 80%;
     transition: 0.5s;
 }
 .card1:hover .imgDiv img {
