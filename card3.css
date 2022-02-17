@@ -36,7 +36,7 @@ body {
     left: 44vw;
 }
 
-.card {
+.card3 {
     position: relative;
     width: 300px;
     height: 400px;
@@ -44,9 +44,7 @@ body {
 
 }
 
-
-
-.card .face {
+.card3 .face {
     position:absolute;
     /* Acá hago que ocupe todo el espacio que defino en card */
     width: 100%;
@@ -60,14 +58,14 @@ body {
     transition: 0.5s;
 }
 
-.card .front{
+.card3 .front{
     /* Acá le digo en qué estado de giro comienza, este en 0 por ser el frente*/
     transform: perspective(600px) rotateY(0deg);
     /* Le agrego sombrita a la card */
     box-shadow: 0 5px 10px #000;
 }
 
-.card .face img {
+.card3 .face img {
     /*Con esto hago que la imagen se acomode dentro del recorte de card*/
     position: absolute;
     width: 100%; 
@@ -75,7 +73,7 @@ body {
     object-fit: cover;
 }
 
-.card .front h3 {
+.card3 .front h3 {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -88,7 +86,7 @@ body {
     text-align: center;
 }
 
-.card .back {
+.card3 .back {
     transform: perspective(600px) rotateY(180deg);
     background: #000;
     padding: 10px;
@@ -102,25 +100,25 @@ body {
     box-shadow: 0 5px 10px #000;
 }
 
-.card .back .link {
+.card3 .back .link {
     border-top: solid 2px #fff;
     height: 30px;
     line-height: 30px ;
 }
 
-.card .back .link a {
+.card3 .back .link a {
     color: #fff;
 }
 
-.card .back .link h3 {
+.card3 .back .link h3 {
     font-size: 20px;
     margin-top: 15px;
 }
 
-.card:hover .front {
+.card3:hover .front {
     transform: perspective(600px) rotateY(180deg);
 }
 
-.card:hover .back {
+.card3:hover .back {
     transform: perspective(600px) rotateY(360deg);
 }
