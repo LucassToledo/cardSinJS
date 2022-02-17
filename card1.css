@@ -7,5 +7,27 @@
     background: #122936;
     /* Acá redondeo los bordes */
     border-radius: 10px;
+    /* Recorto la imagen para que quede bien en el espacio de la card */
     overflow: hidden;
+}
+
+card1::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    /* Acá hago que ocupe todo el espacio que defino en card */
+    width: 100%;
+    height: 100%;
+    /* Este color por los colores del png */
+    background: #2196f3;
+    /* Con esto defino cuánto gira */
+    transform: skewY(345deg);
+    /* Que sea rápido */
+    transition: 0.5s;
+}
+
+.card1:hover::before {
+    /* Un efecto copado cuando pongo el mouse sobre card */
+    top: -70%;
+    transform: skewY(390deg);
 }
