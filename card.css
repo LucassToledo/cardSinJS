@@ -1,0 +1,287 @@
+* {
+    /* Primero reseteo todo */
+    margin: 0;
+    padding: 0;
+    /* Hago que el contenido llegue hasta los bordes */
+    box-sizing: border-box;
+    /* Me gusta el sans-serif */
+    font-family: sans-serif;
+}
+
+body {
+    background: #222;
+}
+
+.subtitulo {
+    margin-top: 15px;
+    color: #fff;
+    text-align: center;
+}
+
+.main {
+    display: flex;
+    /* Para poner en el medio */
+    align-items: center;
+    /* Lo mismo */
+    justify-content: center;
+    /* No recuerdo si ya vimos View-height y v-width en clase pero siempre los uso porque me parecen más divertidos */
+    min-height: 80vh;
+    flex-wrap: wrap;
+}
+
+.header h1 {
+    position: absolute;
+    font-size: 20px;
+    color: #fff;
+    margin: 15px;
+    left: 70vw;
+}
+
+.nav {
+    background-color: #2196f3;
+}
+
+
+.nav li {
+    display: inline-block;
+    margin: 1em;
+    list-style: none;
+    color: #fff;
+}
+
+.nav li:hover {
+    color: #ccc;
+}
+
+.nav li:hover > a {
+    color: #ccc;
+}
+
+.nav li a {
+    text-decoration: none;
+    color: white;
+}
+
+/* ------------ACA EMPIEZA LA CARD--------------- */
+
+.card {
+    position: relative;
+    /* Estas serán las medidas de todas las card */
+    width: 300px;
+    height: 400px;
+    /* Le pongo un color que me gustó */
+    background: #122936;
+    /* Acá redondeo los bordes */
+    border-radius: 10px;
+    /* Recorto la imagen para que quede bien en el espacio de la card */
+    overflow: hidden;
+    /* Pongo efecto de sombra */
+    box-shadow: 0 5px 10px #000;
+    /* Espacio entre las cards */
+    margin: 20px;
+}
+
+/* El before antes era con un solo : y ahora :: en CSS3, */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    /* Acá hago que ocupe todo el espacio que defino en card */
+    width: 100%;
+    height: 100%;
+    /* Este color por los colores del png */
+    background: #2196f3;
+    /* Con esto defino cuánto gira */
+    transform: skewY(390deg);
+    /* Que sea rápido */
+    transition: 0.5s;
+}
+
+.card:hover::before {
+    /* Un efecto copado cuando pongo el mouse sobre card */
+    top: -50%;
+    transform: skewY(345deg);
+}
+
+.card::after {
+    content: 'TZUZUL';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* El grosor de la letra */
+    font-weight: 600;
+    /* el tamaño de la letra del fondo */
+    font-size: 8em;
+    /* Eligo rgba para hacerlo transparente */
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.card .imgDiv{
+    position: relative;
+    max-width: 100%;
+    max-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+    /* uso el z para ponerlo adelante de todo al png */
+    z-index: 1;
+}
+
+/* Movimiento copado con el hover */
+.card .imgDiv img {
+    max-width: 80%;
+    transition: 0.5s;
+}
+.card:hover .imgDiv img {
+    max-width: 60%;
+}
+
+/* Agrego estilos para los otros elementos dentro de la card */
+
+.card .contentDiv {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.card .contentDiv h3 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.card .contentDiv .precio {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.card .contentDiv .comprar {
+    position: relative;
+    /* Lo escondo */
+    top: 200px;
+    opacity: 0;
+    /* Probar el short */
+    padding: 10px 30px;
+    margin-top: 15px;
+    color: #fff;
+    background-color: #2196f3;
+    /* No me gusta la linea de abajo */
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.card:hover .contentDiv .comprar {
+    top: 0;
+    /* Lo muestro */
+    opacity: 1;
+}
+
+/* ------------ACA EMPIEZA LA CARD2--------------- */
+
+.card2 {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 20px;
+}
+
+.card2 .face {
+    position:absolute;
+    /* Acá hago que ocupe todo el espacio que defino en card */
+    width: 100%;
+    height: 100%;
+    /* Esta cosa la usaba uno en Instagram y dije "Messirve" */
+    backface-visibility: hidden;
+    /* Acá redondeo los bordes */
+    border-radius: 10px;
+    overflow: hidden;
+    /* Ajusto la velocidad a la que cambia el estado para darle un delay a la animación */
+    transition: 0.5s;
+}
+
+.card2 .front{
+    /* Acá le digo en qué estado de giro comienza, este en 0 por ser el frente*/
+    transform: perspective(600px) rotateY(0deg);
+    /* Le agrego sombrita a la card */
+    box-shadow: 0 5px 10px #000;
+}
+
+.card2 .face img {
+    /*Con esto hago que la imagen se acomode dentro del recorte de card*/
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+}
+
+.card2 .front h3 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    background: black;
+    /* La cuarta propiedad me permite modificar la transparencia */
+    background: rgba(0, 0, 0, .7);
+    text-align: center;
+}
+
+.card2 .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: #000;
+    padding: 20px;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.card2 .back .link {
+    border-top: solid 2px #fff;
+    height: 30px;
+    line-height: 30px ;
+}
+
+.card2 .back .link a {
+    color: #fff;
+}
+
+.card2 .back .link h3 {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.card2:hover .front {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card2:hover .back {
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/* ------------PIE DE PÁGINA--------------- */
+
+.footer {
+    color: #fff;
+    text-align: center;
+    height: 30px;
+    width: 100%;
+}
+
+.footer span {
+    font-size: 18px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
