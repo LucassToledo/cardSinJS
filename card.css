@@ -16,6 +16,8 @@ body {
     margin-top: 15px;
     color: #fff;
     text-align: center;
+    font-size: 20px;
+    line-height: 100px;
 }
 
 .main {
@@ -182,6 +184,7 @@ body {
     /* Lo muestro */
     opacity: 1;
 }
+
 
 /* ------------ACA EMPIEZA LA CARD2--------------- */
 
